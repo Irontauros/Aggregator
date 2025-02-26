@@ -1,0 +1,197 @@
+/* General Styles */
+body {
+    background-color: #111;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background-color: #000;
+    padding: 20px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.site-title {
+    font-size: 36px;
+    color: #df4ec8;
+    margin: 0;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #df4ec8;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+main {
+    flex: 1;
+    padding: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+label {
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="url"],
+input[type="number"],
+input[type="checkbox"] {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #444;
+    border-radius: 5px;
+    background-color: #222;
+    color: #fff;
+}
+
+button[type="submit"] {
+    padding: 10px;
+    font-size: 16px;
+    background-color: #df4ec8;
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #df4ec8;
+}
+
+footer {
+    text-align: center;
+    background-color: #000;
+    color: #fff;
+    padding: 10px 0;
+}
+
+/* Search Bar Styling */
+#category-search,
+#channel-search {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #444;
+    border-radius: 5px;
+    background-color: #222;
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+#category-search::placeholder,
+#channel-search::placeholder {
+    color: #888;
+}
+
+/* Categories Dropdown Styling */
+#categories-dropdown,
+#channels-dropdown {
+    position: relative;
+    margin-top: 10px;
+}
+
+.dropdown-title {
+    cursor: pointer;
+    background-color: #222;
+    padding: 10px;
+    border-radius: 5px;
+    display: inline-block;
+    color: #fff;
+    width: 100%;
+    text-align: left;
+    font-size: 14px;
+    border: 1px solid #444;
+}
+
+.dropdown-list {
+    display: none;
+    background-color: #333;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.dropdown-list.open {
+    display: block;
+}
+
+.dropdown-list label {
+    display: block;
+    margin-bottom: 5px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.dropdown-list input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.dropdown-list input[type="checkbox"]:checked + label {
+    background-color: #555;
+    border-radius: 5px;
+}
+
+.dropdown-list input[type="checkbox"]:hover + label {
+    background-color: #444;
+}
+
+/* ✅ Added spacing between pornstar name fields */
+.pornstar-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px; /* Increased spacing between fields */
+}
+
+/* ✅ Ensure pornstar labels are aligned properly */
+.pornstar-container label {
+    margin-bottom: 5px; /* Small gap between label and input */
+}
+
+/* ✅ Added spacing between "Series:" label and dropdown */
+#series-dropdown {
+    margin-top: 12px; /* More space between the label and dropdown */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    #categories-dropdown,
+    #channels-dropdown {
+        width: 100%;
+    }
+
+    .dropdown-title {
+        font-size: 16px;
+    }
+
+    .dropdown-list {
+        max-height: 150px;
+    }
+}

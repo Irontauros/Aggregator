@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>List</title>
+    <link rel="stylesheet" href="../Main/styles.css">
+</head>
+<body>
+    <header>
+        <h1 class="site-title">All Videos</h1>
+        <nav>
+            <ul>
+                <li><a href="../Main/main.html">Home</a></li>
+                <li><a href="../Categories/categories.html">Categories</a></li>
+                <li><a href="../Actors/actors.html">Pornstars</a></li>
+                <li><a href="../Series/series.html">Series</a></li>
+                <li><a href="../addVideo/addVideo.html">Add Video</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Alphabet Filter -->
+    <div class="alphabet-filter">
+        <button data-letter="all">All</button>
+        <button data-letter="A">A</button>
+        <button data-letter="B">B</button>
+        <button data-letter="C">C</button>
+        <button data-letter="D">D</button>
+        <button data-letter="E">E</button>
+        <button data-letter="F">F</button>
+        <button data-letter="G">G</button>
+        <button data-letter="H">H</button>
+        <button data-letter="I">I</button>
+        <button data-letter="J">J</button>
+        <button data-letter="K">K</button>
+        <button data-letter="L">L</button>
+        <button data-letter="M">M</button>
+        <button data-letter="N">N</button>
+        <button data-letter="O">O</button>
+        <button data-letter="P">P</button>
+        <button data-letter="Q">Q</button>
+        <button data-letter="R">R</button>
+        <button data-letter="S">S</button>
+        <button data-letter="T">T</button>
+        <button data-letter="U">U</button>
+        <button data-letter="V">V</button>
+        <button data-letter="W">W</button>
+        <button data-letter="X">X</button>
+        <button data-letter="Y">Y</button>
+        <button data-letter="Z">Z</button>
+        <!-- New Random Video Button -->
+        <button class="random-video-button">Random Video</button>
+    </div>
+
+    <main>
+        <section class="videos-container" id="unprotected-videos">
+            <h2>Unprotected Videos</h2>
+            <!-- Unprotected videos will be dynamically added here -->
+        </section>
+
+        <section class="videos-container" id="protected-videos" style="display: none;">
+            <h2>Protected Videos</h2>
+            <!-- Protected videos will be dynamically added here -->
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 XXX Aggregator. All rights reserved.</p>
+    </footer>
+
+    <script defer src="list.js"></script>
+</body>
+</html>

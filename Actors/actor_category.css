@@ -1,0 +1,118 @@
+ /* General Styles */
+ body {
+    background-color: #111;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header */
+header {
+    background-color: #000;
+    padding: 20px;
+    text-align: center;
+}
+
+.site-title {
+    font-size: 36px;
+    color: #df4ec8;
+    margin: 0;
+    font-weight: bold; /* Make the site title bold */
+}
+
+/* Navigation */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #df4ec8;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Main Content */
+.main-content {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.actor-title, .category-title {
+    font-size: 28px;
+    color: #df4ec8;
+    margin-bottom: 20px;
+    font-weight: bold; /* Make actor and category titles bold */
+}
+
+/* Actors Container (Grid) */
+.actors-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Flexible layout for actor boxes */
+    gap: 20px; /* Spacing between actor boxes */
+    padding: 20px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+/* Actor Box */
+.actor-box {
+    background-color: #2a2a2a;
+    border-radius: 10px;
+    text-align: center;
+    padding: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Hover Effect for Actor Box */
+.actor-box:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.7);
+}
+
+/* Thumbnail Styling */
+.actor-thumbnail img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Video Name (Updated to be smaller like Category) */
+.actor-box a {
+    text-decoration: none;
+    color: #df4ec8;
+    font-size: 14px;  /* Smaller font size to match category video titles */
+    margin-top: 10px;
+    font-weight: bold; /* Make video names bold */
+}
+
+.actor-box a:visited,
+.actor-box a:hover,
+.actor-box a:active {
+    color: #df4ec8;
+    text-decoration: none;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    background-color: #000;
+    color: #fff;
+    padding: 10px 0;
+} 

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- Prevent zooming on mobile devices -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Porn Aggregator</title>
+  <link rel="stylesheet" href="/Main/styles.css">
+  <script defer src="/Main/main.js"></script>
+</head>
+<body>
+  <header>
+    <div class="header-container">
+        <h1 class="site-title">Porn Aggregator</h1>
+        <button id="password-button" class="header-button">Unlock</button>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="../Categories/categories.html">Categories</a></li>
+        <li><a href="../Actors/actors.html">Pornstars</a></li>
+        <li><a href="../Series/series.html">Series</a></li>
+        <li><a href="../List/list.html">List</a></li>
+        <li><a href="../addVideo/addVideo.html">Add Video</a></li>
+      </ul>
+    </nav>
+</header>
+
+  <main>
+    <div class="search-container">
+      <input id="search-input" type="text" placeholder="Search videos, #categories, or @actors">
+      <button id="search-button">Search</button>
+    </div>
+
+<!-- Password Modal -->
+<div id="password-modal" class="modal">
+  <div class="modal-content">
+    <h3>Enter Password</h3>
+    <div class="password-input-container">
+      <input type="password" id="password-input" placeholder="Enter your password">
+      <span class="password-eye" id="togglePassword">👁</span>
+    </div>
+    <div class="modal-buttons">
+      <button id="password-submit">Submit</button>
+      <button id="password-close">Close</button>
+    </div>
+    <p id="error-message" style="color: red; display: none;"></p>
+  </div>
+</div>
+
+
+    <!-- Unprotected Videos -->
+    <section id="unprotected-videos" class="categories">
+      <!-- Unprotected videos will be loaded here -->
+    </section>
+
+    <!-- Protected Videos -->
+    <section id="protected-videos" class="categories" style="display:none;">
+      <!-- Protected videos will be loaded here -->
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 XXX Aggregator. All rights reserved.</p>
+  </footer>
+</body>
+</html>

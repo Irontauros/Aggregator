@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Add a New Video</title>
+    <link rel="stylesheet" href="addVideo.css">
+    <script defer src="addVideo.js"></script>
+</head>
+<body>
+    <header>
+        <h1 class="site-title">Add a New Video</h1>
+        <nav>
+            <ul>
+                <li><a href="../Main/main.html">Home</a></li>
+                <li><a href="../Categories/categories.html">Categories</a></li>
+                <li><a href="../Actors/actors.html">Pornstars</a></li>
+                <li><a href="../Series/series.html">Series</a></li>
+                <li><a href="../List/list.html">List</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <form id="videoForm">
+            <div>
+                <label for="video-link">Video Link:</label>
+                <input type="url" id="video-link" name="videoLink" placeholder="Paste the video link" required autocomplete="off">
+            </div>
+            <div>
+                <label for="thumbnail-link">Thumbnail Link:</label>
+                <input type="url" id="thumbnail-link" name="thumbnailLink" placeholder="Paste the thumbnail link" autocomplete="off">
+            </div>
+            <div>
+                <label for="video-title">Video Title:</label>
+                <input type="text" id="video-title" name="videoTitle" placeholder="Enter the video title" autocomplete="off">
+            </div>
+            <div>
+                <label for="pornstars-count">Number of Pornstars:</label>
+                <input type="number" id="pornstars-count" name="pornstarsCount" placeholder="Enter the number of pornstars" min="0" autocomplete="off">
+            </div>
+            <div id="pornstars-names">
+                <!-- Dynamically added fields for pornstar names -->
+            </div>
+            <div>
+                <label for="category-search">Search Categories:</label>
+                <input type="text" id="category-search" name="categorySearch" placeholder="Search for a category" autocomplete="off">
+            </div>
+        
+            <div>
+                <label for="categories-dropdown">Categories:</label> 
+                <div id="categories-dropdown">
+                    <span class="dropdown-title" onclick="toggleCategories()">Categories &#9662;</span>
+                    <div class="dropdown-list" id="categories-list">
+                        <!-- Dynamically loaded categories will appear here -->
+                    </div>
+                </div>
+            </div>
+            
+            <!-- New Series Section -->
+            <div>
+                <label for="series-search">Search Series:</label>
+                <input type="text" id="series-search" name="seriesSearch" placeholder="Search for a series" autocomplete="off">
+            </div>
+
+            <div>
+                <label for="series-dropdown">Series:</label> 
+                <div id="series-dropdown">
+                    <span class="dropdown-title" onclick="toggleSeries()">Series &#9662;</span>
+                    <div class="dropdown-list" id="series-list">
+                        <!-- Dynamically loaded series will appear here -->
+                    </div>
+                </div>
+            </div>
+            <!-- End Series Section -->
+            
+            <div>
+                <label for="protection-toggle">
+                    <input type="checkbox" id="protection-toggle" name="protectionToggle">
+                    Protect this video
+                </label>
+            </div>
+            <button type="submit" id="add-video-button">Add Video</button>
+        </form>
+              
+        <div id="feedback-message"></div>
+
+    </main>
+    <footer>
+        <p>© 2025 Francisco Duarte - Iron Taurus. All rights reserved.</p>
+    </footer>
+</body>
+</html>

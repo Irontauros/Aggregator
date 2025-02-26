@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Actors</title>
+    <link rel="stylesheet" href="../Main/styles.css">
+</head>
+
+<body>
+    <header>
+        <div class="header-container">
+            <h1 class="site-title">Actors</h1>
+            <button id="add-actor-button" class="header-button">Add Actor</button>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="../Main/main.html">Home</a></li>
+                <li><a href="../Categories/categories.html">Categories</a></li>
+                <li><a href="../Series/series.html">Series</a></li>
+                <li><a href="../List/list.html">List</a></li>
+                <li><a href="../addVideo/addVideo.html">Add Video</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Alphabet Filter -->
+    <div class="alphabet-filter">
+        <button data-letter="all">All</button>
+        <button data-letter="A">A</button>
+        <button data-letter="B">B</button>
+        <button data-letter="C">C</button>
+        <button data-letter="D">D</button>
+        <button data-letter="E">E</button>
+        <button data-letter="F">F</button>
+        <button data-letter="G">G</button>
+        <button data-letter="H">H</button>
+        <button data-letter="I">I</button>
+        <button data-letter="J">J</button>
+        <button data-letter="K">K</button>
+        <button data-letter="L">L</button>
+        <button data-letter="M">M</button>
+        <button data-letter="N">N</button>
+        <button data-letter="O">O</button>
+        <button data-letter="P">P</button>
+        <button data-letter="Q">Q</button>
+        <button data-letter="R">R</button>
+        <button data-letter="S">S</button>
+        <button data-letter="T">T</button>
+        <button data-letter="U">U</button>
+        <button data-letter="V">V</button>
+        <button data-letter="W">W</button>
+        <button data-letter="X">X</button>
+        <button data-letter="Y">Y</button>
+        <button data-letter="Z">Z</button>
+        <button id="random-button">Random Actor</button>
+    </div>
+
+    <main>
+        <section class="actors-container" id="actors">
+            <div class="actors-header">
+                <h2>Actors</h2>
+            </div>
+            <!-- Actors will be dynamically added here -->
+        </section>
+    </main>
+
+    <!-- Modal for Adding an Actor -->
+    <div id="add-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3>Add a New Actor</h3>
+            <p><label for="name-in-modal">Name:</label>
+            <input type="text" id="name-in-modal" placeholder="Enter actor's name"></p>
+
+            <p><label for="image-in-modal">Thumbnail:</label>
+            <input type="text" id="image-in-modal" placeholder="Enter image link"></p>
+
+            <button id="enter-modal-button">Enter</button>
+            <button id="close-modal-button">Close</button>
+            <div id="feedback-message"></div>
+        </div>
+    </div>
+    <div id="modal-overlay" class="modal-overlay"></div>
+
+    <footer>
+        <p>© 2025 XXX Aggregator. All rights reserved.</p>
+    </footer>
+
+    <script defer src="actors.js"></script>
+</body>
+
+</html>

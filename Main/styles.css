@@ -1,0 +1,733 @@
+/* =========================
+   GENERAL STYLES
+   ========================= */
+   body {
+    background-color: #111;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    touch-action: manipulation;
+}
+
+/* Evita zoom automático ao focar inputs (iOS, etc.) */
+input, textarea, select, button {
+    font-size: 16px;
+}
+
+/* =========================
+   GLOBAL INPUT STYLES (do Ad Video)
+   ========================= */
+input[type="text"],
+input[type="url"],
+input[type="number"],
+input[type="checkbox"] {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #444;
+    border-radius: 5px;
+    background-color: #222;
+    color: #fff;
+}
+
+input::placeholder {
+    color: #888;
+}
+
+/* =========================
+   HEADER & SITE TITLE
+   ========================= */
+header {
+    background-color: #000;
+    padding: 20px;
+}
+
+.header-container {
+    position: relative;
+    width: 100%;
+}
+
+.site-title {
+    font-size: 36px;
+    color: #df4ec8;
+    margin: 0;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Botão comum do header (para Unlock e Add Actor) */
+.header-button {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #df4ec8;
+    color: #000;
+    border: none;
+    padding: 8px 12px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.header-button:hover {
+    background-color: #df4ec8;
+}
+
+/* =========================
+   NAVIGATION
+   ========================= */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #df4ec8 !important;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+    color: #df4ec8;
+}
+
+/* Remove default link styles globalmente */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+a:visited,
+a:hover,
+a:active {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* =========================
+   SEARCH BAR (Main Page)
+   ========================= */
+   .search-container {
+    text-align: center;
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+#search-input {
+    max-width: 1000px !important; /* Adjust width as needed */
+    min-width: 100px !important;
+    width: 80%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #444;
+    border-radius: 5px;
+    background-color: #222;
+    color: #fff;
+}
+
+#search-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    background-color: #df4ec8;
+    color: #000;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#search-button:hover {
+    background-color: #df4ec8;
+}
+
+
+/* =========================
+   VIDEOS ON MAIN PAGE
+   ========================= */
+#unprotected-videos,
+#protected-videos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.video-item {
+    background-color: #2a2a2a;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.5);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.video-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 6px 15px rgba(0,0,0,0.7);
+}
+
+.video-item img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.video-item p {
+    font-size: 16px;
+    font-weight: bold;
+    color: #df4ec8;
+    margin: 10px 0;
+    text-align: center;
+}
+
+.video-item a:hover,
+.video-item a:visited,
+.video-item a:active {
+    text-decoration: none;
+    color: #df4ec8;
+}
+
+/* =========================
+   Series PAGE STYLES
+   ========================= */
+   .series-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Responsive grid */
+    gap: 20px;
+    padding: 20px;
+    margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.series-box {
+    background-color: #2a2a2a;
+    border-radius: 10px;
+    text-align: center;
+    padding: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.series-box:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.7);
+}
+
+.series-thumbnail img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.series-box a {
+    text-decoration: none !important;
+    color: #df4ec8 !important;
+    font-size: 20px;
+    display: block;
+    margin-bottom: 12px;
+    font-weight: bold;
+}
+
+/* ------------------------- 
+   series FILTER (If applicable)
+   ------------------------- */
+.series-filter {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+    background-color: #222;
+    margin-bottom: 20px;
+}
+
+.series-filter button {
+    background-color: #2a2a2a;
+    color: #df4ec8;
+    border: none;
+    padding: 6px 10px;
+    font-size: 12px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.series-filter button:hover {
+    background-color: #df4ec8;
+    color: #000;
+}
+
+
+/* =========================
+   MY LIST / VIDEO BOXES
+   ========================= */
+.videos-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.video-box {
+    background-color: #2a2a2a;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.5);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.video-box:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 6px 15px rgba(0,0,0,0.7);
+}
+
+.video-box img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.video-box p {
+    color: #df4ec8;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+/* Random Video Button */
+.random-video-button {
+    background-color: #df4ec8;
+    color: #000;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.random-video-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 4px 10px #df4ec8(255,165,0,0.7);
+}
+
+/* =========================
+   CATEGORIES PAGE
+   ========================= */
+.categories-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.category-box {
+    background-color: #2a2a2a;
+    border-radius: 10px;
+    text-align: center;
+    padding: 12px;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.5);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.category-box:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 6px 15px rgba(0,0,0,0.7);
+}
+
+.category-thumbnail img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.category-box a {
+    text-decoration: none !important;
+    color: #df4ec8 !important;
+    font-size: 20px;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 12px;
+}
+
+/* -------------------------
+   ALPHABET FILTER (Categories)
+   ------------------------- */
+.alphabet-filter {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+    background-color: #222;
+    margin-bottom: 20px;
+}
+
+.alphabet-filter button {
+    background-color: #2a2a2a;
+    color: #df4ec8;
+    border: none;
+    padding: 6px 10px;
+    font-size: 12px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.alphabet-filter button:hover {
+    background-color: #df4ec8;
+    color: #000;
+}
+
+
+/* =========================
+   ACTORS PAGE STYLES
+   ========================= */
+   .actors-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.actor-box {
+    background-color: #2a2a2a;
+    border-radius: 10px;
+    text-align: center;
+    padding: 12px;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.5);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.actor-box:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 6px 15px rgba(0,0,0,0.7);
+}
+
+.actor-box a {
+    text-decoration: none !important;
+    color: #df4ec8 !important;
+    font-size: 20px;
+    display: block;
+    margin-bottom: 12px;
+    font-weight: bold;
+}
+
+.actor-box a:visited,
+.actor-box a:hover,
+.actor-box a:active {
+    color: #df4ec8 !important;
+    text-decoration: none !important;
+}
+
+.actor-thumbnail {
+    width: 250px;
+    height: 300px;
+    overflow: hidden;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.actor-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* -------------------------
+   ALPHABET FILTER (Actor Page)
+   ------------------------- */
+.alphabet-filter {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
+    padding: 10px;
+    background-color: #222;
+    margin-bottom: 20px;
+}
+
+.alphabet-filter button,
+#random-button {
+    background-color: #2a2a2a;
+    color: #df4ec8;
+    border: none;
+    padding: 10px 16px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.alphabet-filter button:hover,
+#random-button:hover {
+    background-color: #df4ec8;
+    color: #000;
+}
+
+/* =========================
+   FOOTER
+   ========================= */
+footer {
+    text-align: center;
+    background-color: #000;
+    color: #fff;
+    padding: 10px 0;
+}
+
+/* =========================
+   MODAL STYLES (For both Main and Actors and series)
+   ========================= */
+
+/* Hide the close icon */
+.close-modal {
+    display: none !important;
+}
+/* Modal Overlay */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #222;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 600px;
+    text-align: center;
+    color: white;
+    max-height: 90%;
+    overflow-y: auto;
+}
+
+
+
+/* Modal Title */
+.modal-content h3 {
+    color: #df4ec8;
+    margin-bottom: 15px;
+    font-size: 24px;
+}
+
+/* Password Input Container */
+.password-input-container {
+    position: relative;
+    width: 100%;
+    max-width: 350px;   /* Consistent width */
+    margin: 0 auto 15px; /* Centers and adds bottom spacing */
+}
+
+/* Password Input */
+.password-input-container input {
+    width: 100%;
+    padding: 12px;
+    padding-right: 45px; /* Leaves space for the eye icon */
+    font-size: 16px;
+    border: 1px solid #555;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+    box-sizing: border-box; /* Ensures proper sizing */
+}
+
+/* Eye Icon for Password Visibility */
+.password-eye {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 18px;
+    color: #ccc;
+    width: 30px;  /* Ensures it stays inside */
+    text-align: center;
+}
+
+/* Modal Buttons Container */
+.modal-buttons {
+    display: flex;
+    justify-content: center; /* Centraliza os botões */
+    gap: 10px;
+    align-items: center;
+    margin-top: 20px;
+}
+
+/* Modal Buttons (para ambos os modais) */
+button#enter-modal-button,
+button#close-modal-button,
+#password-submit,
+#password-close {
+    background-color: #df4ec8;
+    color: #000;
+    padding: 10px 20px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    max-width: 100px;
+}
+
+button#enter-modal-button:hover,
+button#close-modal-button:hover,
+#password-submit:hover,
+#password-close:hover {
+    background-color: #df4ec8;
+}
+
+
+/* =========================
+   MOBILE & TABLET SETTINGS
+   ========================= */
+
+/* Para tablets: manter os links do header lado a lado */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: row;
+        gap: 10px;
+    }
+    #search-bar {
+        width: 80%;
+    }
+    .videos-container,
+    #unprotected-videos,
+    #protected-videos {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+    .video-box img {
+        height: 180px;
+    }
+    .actors-container {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+    .actor-box {
+        padding: 10px;
+    }
+    .actor-thumbnail {
+        width: 200px;
+        height: 240px;
+    }
+
+    /* Ajustes para evitar sobreposição do título e botão */
+    .header-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        padding: 10px;
+        text-align: center;
+    }
+
+    .site-title {
+        font-size: 28px;
+    }
+
+    .header-button {
+        position: relative;
+        margin-top: 10px;
+        right: auto;
+        transform: none;
+    }
+}
+
+/* Para celulares: manter os links do header lado a lado e ajustar fontes */
+@media (max-width: 480px) {
+    .site-title {
+        font-size: 24px;
+    }
+    nav ul {
+        flex-direction: row;
+        gap: 8px;
+    }
+    .videos-container,
+    #unprotected-videos,
+    #protected-videos {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+    .video-box img {
+        height: 150px;
+    }
+    .video-box p {
+        font-size: 14px;
+    }
+    .alphabet-filter button {
+        font-size: 12px;
+        padding: 6px 10px;
+    }
+
+    /* Ajustes para evitar sobreposição do título e botão no celular */
+    .header-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        padding: 10px;
+        text-align: center;
+    }
+
+    .site-title {
+        font-size: 22px;
+    }
+
+    .header-button {
+        position: relative;
+        margin-top: 8px;
+        right: auto;
+        transform: none;
+    }
+}
