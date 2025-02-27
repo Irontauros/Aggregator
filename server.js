@@ -15,23 +15,26 @@ const storedHashedPassword = "$2b$10$vGBWBezJEkNdgacV/VyVROBjX6blxkdLQRyDsbm30P4
 
 // Define the function to call the checkThumbnails.js script
 function callCheckThumbnailsScript() {
-    console.log('\nStarted checking links...\n'); // Log the start message
+    const scriptPath = 'C:/Users/Nitropc/Documents/Projects/Aggregator/Extras/checkThumbnails.js'; // Full absolute path
+    const process = spawn("node", [scriptPath]);
 
-    const scriptPath = 'C:/Users/Nitropc/Documents/Aggregator/Extras/checkThumbnails.js'; // Full absolute path
-    exec(`node ${scriptPath}`, (error, stdout, stderr) => {
-        if (error) {
-            console.error(`Error executing checkThumbnails.js: ${error}`);
-            return;
-        }
-        if (stderr) {
-            console.error(`stderr: ${stderr}`);
-            return;
-        }
-        console.log('\nFinished checking links.\n'); // Log when done with categories
+    // Stream stdout to console in real-time
+    process.stdout.on("data", (data) => {
+        console.log(data.toString()); // Print output as it arrives
+    });
+
+    // Stream stderr to console
+    process.stderr.on("data", (data) => {
+        console.error(data.toString());
+    });
+
+    // Detect when the script is done
+    process.on("close", (code) => {
+        console.log("\nFinished checking links.\n");
     });
 }
 
-// Call the function first thing when the server starts
+// Call the function when the server starts
 callCheckThumbnailsScript();
 
 // Middleware
