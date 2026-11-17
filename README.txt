@@ -1,4 +1,4 @@
-
+@'
 # Aggregator
 
 A self-hosted video aggregator web app built with Node.js, Express and SQLite. Paste a link and it reads the page's title and thumbnail, stores the image locally, and files the video by category, actor, network, studio or series. It runs on your own PC and can be opened from a phone through a Cloudflare tunnel.
@@ -95,3 +95,4 @@ Built and tested by me, with Claude used as a coding assistant.
 ## License
 
 See [LICENSE.txt](LICENSE.txt).
+'@
