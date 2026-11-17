@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+  <link rel="stylesheet" href="../css/app.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@400;500&display=swap" rel="stylesheet" />
+
+  <!-- Components -->
+  <script src="../Components/header.js" defer></script>
+  <script src="../Components/searchBar.js" defer></script>
+  <script src="../Components/editSystem.js" defer></script>
+  <script src="../Components/addButton.js" defer></script>
+
+  <!-- Page -->
+  <script src="incomplete.js" defer></script>
+</head>
+
+<body>
+
+  <!-- HEADER SLOT -->
+  <div id="header-slot"></div>
+
+  <!-- MODAL SLOT -->
+  <div id="add-item-slot"></div>
+
+  <main class="page-content" data-alphabet="true">
+
+    <div id="search-slot"></div>
+
+    <section id="incomplete" class="card-grid">
+    </section>
+
+  </main>
+</body>
+</html>

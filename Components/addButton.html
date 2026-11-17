@@ -1,0 +1,71 @@
+<style>
+  #modal-bulk-toggle {
+    display: block;
+    align-self: center;
+    margin: 0 auto 14px;
+    padding: 10px 22px;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    background-color: var(--accent, #df4ec8);
+    color: #000;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  #modal-bulk-toggle:hover {
+    background-color: var(--accent-hover, #e55dd0);
+  }
+
+  #modal-bulk {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+
+  #modal-bulk-names {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-height: 320px;
+    overflow-y: auto;
+  }
+
+  #modal-bulk-count::-webkit-outer-spin-button,
+  #modal-bulk-count::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 0;
+  }
+
+  #modal-bulk-count[type=number] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+  }
+</style>
+
+<div id="add-modal" class="modal">
+  <div class="modal-content">
+    <h3 id="modal-title"></h3>
+
+    <button type="button" id="modal-bulk-toggle" style="display: none;">Add in Bulk</button>
+
+    <input id="modal-link" type="url" placeholder="Location URL" />
+    <input id="modal-thumbnail" type="url" placeholder="Thumbnail URL" />
+    <input id="modal-name" type="text" placeholder="Name" autocomplete="off" />
+
+    <div id="modal-bulk">
+      <input id="modal-bulk-count" type="number" min="0" max="50" placeholder="How many?" />
+      <div id="modal-bulk-names"></div>
+    </div>
+
+    <div id="feedback-message"></div>
+
+    <div class="modal-buttons">
+      <button id="enter-modal-button">Enter</button>
+      <button id="reset-modal-button">Reset</button>
+      <button id="close-modal-button">Close</button>
+    </div>
+  </div>
+</div>

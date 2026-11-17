@@ -1,0 +1,469 @@
+body {
+    background: #000;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.add-video-page {
+    max-width: 600px;
+    margin: 60px auto;
+    padding: 20px;
+}
+
+/* Give the panels room to actually show multiple columns
+   on bigger screens, while phones keep the original 600px cap. */
+@media (min-width: 900px) {
+    .add-video-page {
+        max-width: 1100px;
+    }
+}
+
+/* =========================
+   FORM LAYOUT
+========================= */
+#videoForm {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+#videoForm > div {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+/* #single-video-fields and #bulk-fields are wrapper divs added around
+   the actual field groups. Without their own flex+gap, the fields
+   inside them lose the 18px spacing they used to get directly from
+   #videoForm's gap (which only applies between its direct children). */
+#single-video-fields,
+#bulk-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    width: 100%;
+}
+
+/* =========================
+   LABELS OUTSIDE DROPDOWNS
+========================= */
+/* Changed from "#videoForm > div > label" to a descendant selector
+   so labels still get styled no matter how many wrapper divs sit
+   between #videoForm and them (e.g. #single-video-fields). */
+#videoForm div > label {
+    font-weight: 800;
+    font-size: 1rem;
+    color: var(--accent, #df4ec8);
+    margin-bottom: 6px;
+}
+
+/* =========================
+   INPUT FIELDS (BASE SIZE STANDARD)
+========================= */
+#videoForm input[type="text"],
+#videoForm input[type="url"],
+#videoForm input[type="number"] {
+    width: 100%;
+    padding: 12px 15px;
+    height: 46px;
+    border-radius: 6px;
+    border: 1px solid #444;
+    background: #444;
+    color: #fff;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+}
+
+#videoForm input:hover { border-color: #666; }
+#videoForm input:focus { border-color: var(--accent, #df4ec8); box-shadow: 0 0 10px color-mix(in srgb, var(--accent, #df4ec8) 40%, transparent); }
+
+/* =========================
+   CHECKBOX
+========================= */
+#videoForm input[type="checkbox"] {
+    accent-color: var(--accent, #df4ec8);
+    transform: scale(1.1);
+    margin-right: 10px;
+}
+#videoForm label:has(input[type="checkbox"]) {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+/* =========================
+   PORNSTARS DYNAMIC FIELDS
+========================= */
+#pornstars-names {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Remove number input arrows */
+#pornstars-count::-webkit-outer-spin-button,
+#pornstars-count::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+#pornstars-count[type=number] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+.actor-wrapper { position: relative; }
+
+.actor-input {
+    width: 100%;
+    padding: 12px 15px;
+    height: 46px;
+    border-radius: 6px;
+    border: 1px solid #444;
+    background: #444;
+    color: #fff;
+    box-sizing: border-box;
+}
+
+/* =========================
+   AUTOCOMPLETE
+========================= */
+.autocomplete-suggestions {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #444;
+    border: 1px solid #444;
+    max-height: 150px;
+    overflow-y: auto;
+    display: none;
+    z-index: 1000;
+}
+.autocomplete-suggestions.visible { display: block; }
+
+.autocomplete-suggestion-item {
+    padding: 8px 10px;
+    cursor: pointer;
+    color: #fff;
+}
+.autocomplete-suggestion-item:hover { background: rgba(255,255,255,0.1); }
+
+/* =========================
+   DROPDOWNS
+========================= */
+.dropdown-input {
+    display: none;
+}
+
+.dropdown-list {
+    width: 100%;
+    max-height: 360px;
+    overflow-y: auto;
+    border: 1px solid #444;
+    background: #444;
+    border-radius: 6px;
+    padding: 10px 12px;
+    box-sizing: border-box;
+
+    /* Multi-column flow: fits as many ~190px columns as the
+       container allows, so far more options are visible at once
+       instead of a single vertical list. */
+    columns: 190px;
+    column-gap: 12px;
+}
+
+#source-list {
+    display: none;
+}
+
+/* =========================
+   CATEGORY BULK ACTIONS
+========================= */
+.categories-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.categories-actions button {
+    padding: 6px 14px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border-radius: 6px;
+    border: 1px solid #444;
+    background: #444;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.categories-actions button:hover {
+    background: #555;
+    border-color: var(--accent, #df4ec8);
+}
+
+.dropdown-list::-webkit-scrollbar { width: 5px; }
+.dropdown-list::-webkit-scrollbar-thumb { background: #000; border-radius: 2px; }
+.dropdown-list::-webkit-scrollbar-track { background: #444; }
+
+.dropdown-list label,
+.dropdown-list .source-option {
+    display: flex;
+    align-items: center;
+    padding: 8px 6px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 0.95rem;
+    cursor: pointer;
+    background: transparent;
+    border-radius: 4px;
+
+    /* Keep each option intact within its column instead of
+       splitting across a column break. */
+    break-inside: avoid;
+    -webkit-column-break-inside: avoid;
+}
+
+.dropdown-list label:hover,
+.dropdown-list .source-option:hover {
+    background: rgba(255,255,255,0.08);
+}
+
+.dropdown-list input[type="checkbox"] {
+    margin-right: 8px;
+    accent-color: var(--accent, #df4ec8);
+    flex-shrink: 0;
+}
+
+/* Phones: back to a single column so nothing feels cramped. */
+@media (max-width: 600px) {
+    .dropdown-list {
+        columns: 1;
+        max-height: 260px;
+    }
+}
+
+/* =========================
+   CATEGORIES CONTAINER
+========================= */
+/* category-search, categories-actions, and categories-list now live
+   together in one div. Without this, they'd stack with no breathing
+   room since a plain div isn't a flex container by default. */
+#categories-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* =========================
+   SOURCE SINGLE SELECT
+========================= */
+#source-selection-container {
+    display: flex;
+    flex-direction: column;
+    gap: 18px; 
+}
+
+/* MATCH HEIGHT WITH MAIN INPUTS */
+#source-search {
+    height: 46px;
+    padding: 12px 15px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    border-radius: 6px;
+    border: 1px solid #444;
+    background: #444;
+    color: #fff;
+    width: 100%;
+}
+
+.source-tiles {
+    display: flex;
+    gap: 8px;
+    width: 100%;
+}
+
+/* MATCH HEIGHT WITH MAIN INPUTS */
+.source-tile {
+    flex: 1;
+    height: 46px;
+    padding: 0;
+    border-radius: 6px;
+    border: 1px solid #444;
+    background: #444;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: center;
+    transition: 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.source-tile:hover { background: #555; }
+.source-tile.active { background: var(--accent, #df4ec8); border-color: var(--accent, #df4ec8); color: #000; }
+
+/* =========================
+   BUTTONS
+========================= */
+.button-row {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-top: 10px;
+    align-items: stretch; /* ADD THIS */
+}
+
+#add-video-button,
+#reset-form-button {
+    flex: 1;
+    padding: 16px 0;   /* instead of height */
+    font-size: 1.1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+#add-video-button {
+    background-color: var(--accent, #df4ec8);
+    color: #000;
+}
+
+
+#reset-form-button {
+    background-color: #b91414;
+    color: #000;
+}
+
+#add-video-button:hover { background-color: var(--accent-hover, #e55dd0); }
+#reset-form-button:hover { background-color: #b42525; }
+
+/* =========================
+   LINK PREVIEW STATUS
+========================= */
+/* Sits right under the Video Link input. Hidden by default — only
+   shown once a link is actually typed in, never on page load. */
+#link-preview-status {
+    display: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-top: 4px;
+}
+
+#link-preview-status.visible {
+    display: block;
+}
+
+#link-preview-status.status-loading { color: #c084f5; }
+#link-preview-status.status-success { color: #00ff88; }
+#link-preview-status.status-error   { color: #ff5555; }
+
+/* =========================
+   FEEDBACK
+========================= */
+#feedback-message {
+    width: 100%;
+    font-size: 0.95rem;
+    min-height: 20px;
+    text-align: center;
+    margin-top: 5px;
+    white-space: pre-line;
+}
+
+.feedback-success { color: #00ff88; }
+.feedback-error { color: #ff5555; }
+
+/* Remove "Categories ▼" trigger */
+.dropdown-title {
+    display: none !important;
+}
+/* =========================
+   TOP TOOLBAR (scrolls away with the page)
+========================= */
+#add-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 10px 0;
+    margin-bottom: 8px;
+}
+
+#toggle-form-type,
+#toggle-bulk-mode {
+    padding: 10px 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    background-color: var(--accent, #df4ec8);
+    color: #000;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+#toggle-form-type:hover,
+#toggle-bulk-mode:hover {
+    background-color: var(--accent-hover, #e55dd0);
+}
+
+/* =========================
+   BULK ADD FIELDS
+========================= */
+.bulk-link-input {
+    width: 100%;
+    padding: 12px 15px;
+    height: 46px;
+    border-radius: 6px;
+    border: 1px solid #444;
+    background: #444;
+    color: #fff;
+    box-sizing: border-box;
+}
+
+#bulk-links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Remove number input arrows */
+#bulk-count::-webkit-outer-spin-button,
+#bulk-count::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+#bulk-count[type=number] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+/* Current type label below button */
+#current-form-type {
+    font-weight: bold;
+    color: #fff;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+/* =========================
+   AUTOSAVE INDICATOR
+========================= */
+#autosave-indicator {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #00ff88;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+
+#autosave-indicator.visible {
+    opacity: 1;
+}

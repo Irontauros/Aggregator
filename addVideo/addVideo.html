@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="../css/app.css?v=20261107">
+    <link rel="stylesheet" href="../css/add.css?v=20261107">
+
+    <script src="../Components/header.js" defer></script>
+    <script defer src="addVideo.js?v=20261107"></script>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <div id="header-slot"></div>
+
+    <!-- PAGE CONTENT -->
+    <main class="add-video-page">
+
+        <div id="add-toolbar">
+            <button type="button" id="toggle-form-type">Switch to Feature</button>
+            <button type="button" id="toggle-bulk-mode">Add in Bulk</button>
+            <span id="autosave-indicator"></span>
+        </div>
+
+        <form id="videoForm">
+
+        <div id="single-video-fields">
+
+            <!-- VIDEO LINK -->
+            <div>
+                <label for="video-link">Video / Feature Link:</label>
+                <input type="url" id="video-link" required autocomplete="off">
+                <span id="link-preview-status"></span>
+            </div>
+
+            <!-- THUMBNAIL (OPTIONAL) -->
+            <div>
+                <label for="thumbnail-link">Thumbnail Link (optional):</label>
+                <input type="text" id="thumbnail-link" autocomplete="off">
+            </div>
+
+            <!-- TITLE (OPTIONAL) -->
+            <div>
+                <label for="video-title">Title (optional):</label>
+                <input type="text" id="video-title" autocomplete="off">
+            </div>
+
+            <!-- PORNSTARS -->
+            <div>
+                <label for="pornstars-count">Number of Pornstars:</label>
+                <input type="number" id="pornstars-count" min="0">
+            </div>
+            <div id="pornstars-names"></div>
+
+            <!-- CATEGORIES -->
+            <div id="categories-container">
+                <label>Categories:</label>
+                <input type="text" id="category-search" placeholder="Search categories..." autocomplete="off">
+                <div class="categories-actions">
+                    <button type="button" id="select-all-categories">Select all</button>
+                    <button type="button" id="clear-all-categories">Clear all</button>
+                </div>
+                <div id="categories-list" class="dropdown-list"></div>
+            </div>
+
+            <!-- SOURCE (Hidden in Feature Mode) -->
+            <div id="source-selection-container" class="dropdown-container">
+                <label>Choose Network / Studio / Series:</label>
+
+                <div class="source-tiles">
+                    <button type="button" class="source-tile" data-type="network">Network</button>
+                    <button type="button" class="source-tile" data-type="studio">Studio</button>
+                    <button type="button" class="source-tile" data-type="series">Series</button>
+                </div>
+
+                <input type="text" id="source-search" placeholder="Search..." autocomplete="off">
+                <div id="source-list" class="dropdown-list"></div>
+            </div>
+
+        </div>
+
+        <!-- BULK ADD (Video Mode Only) -->
+        <div id="bulk-fields" style="display: none;">
+            <div>
+                <label for="bulk-count">Number of Videos:</label>
+                <input type="number" id="bulk-count" min="0">
+            </div>
+            <div id="bulk-links"></div>
+        </div>
+
+        <!-- BUTTONS -->
+        <div class="button-row">
+            <button type="submit" id="add-video-button">Add Video</button>
+            <button type="button" id="reset-form-button">Clear / Reset</button>
+        </div>
+
+        <div id="feedback-message"></div>
+
+        </form>
+    </main>
+</body>
+</html>

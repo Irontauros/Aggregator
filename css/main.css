@@ -1,0 +1,413 @@
+/* =========================
+   GENERAL STYLES
+========================= */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #111;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    touch-action: manipulation;
+}
+
+input, textarea, select, button {
+    font-size: 16px;
+}
+
+input[type="text"],
+input[type="url"],
+input[type="number"],
+input[type="checkbox"],
+select {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #444;
+    border-radius: 5px;
+    background-color: #222;
+    color: #fff;
+}
+
+select {
+    -webkit-appearance: none;
+    appearance: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+select option {
+    background-color: #222;
+    color: #fff;
+}
+
+input::placeholder {
+    color: #888;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* =========================
+   SEARCH BAR
+========================= */
+
+.search-container {
+    text-align: center;
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+#search-input {
+    max-width: 1000px;
+    width: 80%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #444;
+    border-radius: 5px;
+    background-color: #222;
+    color: #fff;
+}
+
+/* =========================
+   SEARCH & TOGGLE BUTTONS
+========================= */
+#search-button,
+#toggle-view-button {
+    background-color: var(--accent, #df4ec8);
+    color: #000;
+    border: none;
+    padding: 12px 20px;
+    font-size: 1.05rem;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-left: 8px; /* spacing between buttons */
+    transition: background-color 0.3s ease;
+}
+
+#search-button:hover,
+#toggle-view-button:hover {
+    background-color: var(--accent-hover, #e55dd0);
+}
+
+
+/* =========================
+   GRID SYSTEM (DEFAULT = 6)
+========================= */
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 24px;
+    padding: 24px;
+    width: 100%;
+}
+
+
+/* =========================
+   CATEGORY + WEBSITE OVERRIDE (5 columns)
+========================= */
+
+#categories.card-grid,
+#websites.card-grid {
+    grid-template-columns: repeat(5, 1fr);
+}
+
+
+/* =========================
+   CARD BASE
+========================= */
+
+.card {
+    background: color-mix(in srgb, var(--accent, #df4ec8) 18%, #170f13);
+    border-radius: 12px;
+    padding: 14px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.3s ease;
+}
+
+.card a {
+    display: block;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.7);
+}
+
+
+/* =========================
+   THUMBNAILS
+========================= */
+
+/* Default: Landscape 16:9 (videos, websites, categories) */
+.card-thumbnail {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.card-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Actors: Portrait */
+.card-thumbnail.portrait {
+    aspect-ratio: 3 / 4;
+}
+
+/* Shorts: Square */
+#shorts .card-thumbnail {
+    aspect-ratio: 1 / 1;
+}
+
+/* Shorts: Square */
+#hentai .card-thumbnail {
+    aspect-ratio: 3 / 4;
+}
+
+/* Shorts: Square */
+#websites .card-thumbnail {
+    aspect-ratio: 1 / 1;
+}
+/* =========================
+   CARD TITLE
+========================= */
+
+.card-title {
+    color: #c9bfa8;
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 12px;
+    line-height: 1.3;
+    word-break: break-word;
+}
+
+.card-count {
+    font-family: "Oswald", sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #8a8177;
+    opacity: 0.8;
+    margin-top: 4px;
+}
+
+/* =========================
+   RATING STARS
+========================= */
+.rating-stars {
+    position: relative;
+    display: inline-block;
+    font-size: 22px;
+    line-height: 1;
+    margin-top: 6px;
+    letter-spacing: 3px;
+}
+
+.stars-empty,
+.stars-filled {
+    white-space: nowrap;
+}
+
+.stars-empty {
+    color: #4a4a4a;
+}
+
+.stars-filled {
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    color: #ffd400;
+}
+
+/* =========================
+   RATING PICKER (Add/Edit — clickable)
+========================= */
+.rating-picker {
+    position: relative;
+    display: inline-block;
+    font-size: 36px;
+    line-height: 1;
+    letter-spacing: 4px;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+/* =========================
+   ENTITY CARDS (networks/studios/series) — movie-poster title card
+========================= */
+
+.entity-card-text-only {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 160px;
+    padding: 28px 18px 22px;
+    gap: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.entity-card-eyebrow {
+    font-family: "Oswald", sans-serif;
+    font-weight: 500;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent, #df4ec8);
+    opacity: 0.9;
+}
+
+.entity-card-rule {
+    width: 36px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--accent, #df4ec8), transparent);
+    transition: width 0.25s ease;
+}
+
+.entity-card-title {
+    font-family: "Anton", sans-serif;
+    font-weight: 400;
+    font-size: 28px;
+    letter-spacing: 0.5px;
+    line-height: 1.15;
+    text-transform: uppercase;
+    color: #c9bfa8;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+    word-break: break-word;
+}
+
+@media (hover: hover) {
+    .entity-card-text-only:hover .entity-card-title {
+        text-shadow: 0 0 14px color-mix(in srgb, var(--accent, #df4ec8) 55%, transparent), 0 2px 10px rgba(0, 0, 0, 0.6);
+    }
+
+    .entity-card-text-only:hover .entity-card-rule {
+        width: 56px;
+    }
+}
+
+/* ===== All Videos Special Card ===== */
+
+.all-videos-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.all-videos-button {
+  width: 100%;
+  height: 100%;
+  background: #111;
+  color: white;
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: 1px;
+  border: 2px solid #444;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  text-align: center;
+  padding: 20px;
+}
+
+.all-videos-card:hover .all-videos-button {
+  background: #222;
+  border-color: #777;
+  transform: scale(1.02);
+}
+
+/* edit mode border */
+
+.card.edit-mode {
+  border: 3px solid var(--accent, #7a4cff);
+  cursor: pointer;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1400px) {
+    .card-grid {
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+    #categories.card-grid,
+    #websites.card-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 1100px) {
+    .card-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    #categories.card-grid,
+    #websites.card-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 800px) {
+    .card-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    #categories.card-grid,
+    #websites.card-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .card-grid {
+        grid-template-columns: 1fr;
+    }
+
+    #categories.card-grid,
+    #websites.card-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .card-title {
+        font-size: 16px;
+    }
+
+    .entity-card-title {
+        font-size: 20px;
+    }
+}
+
+@media (hover: hover) {
+    .card:hover {
+        transform: scale(1.05);
+    }
+}

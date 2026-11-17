@@ -1,0 +1,16 @@
+node_modules/
+package-lock.json
+.env
+dist/
+build/
+.DS_Store
+Thumbs.db
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.vscode/
+*.log
+data/
+public/
+mislabeled-images.txt
+orphaned-images.txt
